@@ -1,0 +1,47 @@
+mysql://becbcb852884ec:c96a7186@eu-cdbr-west-02.cleardb.net/heroku_95fbc017f598094?reconnect=true
+
+user : becbcb852884ec
+password : c96a7186
+host : eu-cdbr-west-02.cleardb.net
+database : heroku_95fbc017f598094
+
+
+
+mysql://becbcb852884ec:c96a7186@eu-cdbr-west-02.cleardb.net/heroku_95fbc017f598094?reconnect=true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql://be033c5ac77060:268b65c1@eu-cdbr-west-02.cleardb.net/heroku_636f55997b22c4e?reconnect=true
+
+user : be033c5ac77060
+password : 268b65c1
+host : eu-cdbr-west-02.cleardb.net
+database : heroku_636f55997b22c4e
+
+
+
+mysql://b8c987702d827e:13fc9682@eu-cdbr-west-02.cleardb.net/heroku_7e2e01d05483dad?reconnect=true
+
+user : b8c987702d827e
+password : 13fc9682
+host : eu-cdbr-west-02.cleardb.net
+database : heroku_7e2e01d05483dad
+
+
