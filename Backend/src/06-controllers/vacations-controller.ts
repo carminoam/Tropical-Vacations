@@ -9,7 +9,7 @@ import cyber from '../01-utils/cyber';
 const router = express.Router();
 
 // Get all vacations:
-router.get("/vacations",verifyLoggedIn , async (request: Request, response: Response, next: NextFunction) => {
+router.get("/vacations", verifyLoggedIn , async (request: Request, response: Response, next: NextFunction) => {
     try {
         const userId = +cyber.extractUserId(request.headers.authorization);
         const vacations = await logic.getAllVacations(userId);
@@ -21,7 +21,7 @@ router.get("/vacations",verifyLoggedIn , async (request: Request, response: Resp
 });
 
 // Get one vacation: 
-router.get("/vacations/:id", async (request: Request, response: Response, next: NextFunction) => {
+router.get("/vacations/:id", verifyLoggedIn , async (request: Request, response: Response, next: NextFunction) => {
     try {
         const id = +request.params.id;
         const vacation = await logic.getOneVacation(id);
@@ -33,7 +33,7 @@ router.get("/vacations/:id", async (request: Request, response: Response, next: 
 });
 
 // Add one vacation:
-router.post("/vacations", async (request: Request, response: Response, next: NextFunction) => {
+router.post("/vacations", verifyAdmin , async (request: Request, response: Response, next: NextFunction) => {
     try {
         request.body.image = request.files?.pic;
         const vacation = new VacationModel(request.body);
@@ -46,7 +46,7 @@ router.post("/vacations", async (request: Request, response: Response, next: Nex
 });
 
 // Update one full vacation: (not in use)
-router.put("/vacations/:id", async (request: Request, response: Response, next: NextFunction) => {
+router.put("/vacations/:id", verifyAdmin , async (request: Request, response: Response, next: NextFunction) => {
     try {
         const id = +request.params.id;
         request.body.id = id;
@@ -60,7 +60,7 @@ router.put("/vacations/:id", async (request: Request, response: Response, next: 
 });
 
 // Update one part vacation:
-router.patch("/vacations/:id", async (request: Request, response: Response, next: NextFunction) => {
+router.patch("/vacations/:id",verifyAdmin , async (request: Request, response: Response, next: NextFunction) => {
     try {
         request.body.image = request.files?.pic;
         const id = +request.params.id;
@@ -75,7 +75,7 @@ router.patch("/vacations/:id", async (request: Request, response: Response, next
 });
 
 // Delete one vacation:
-router.delete("/vacations/:id", async (request: Request, response: Response, next: NextFunction) => {
+router.delete("/vacations/:id",verifyAdmin , async (request: Request, response: Response, next: NextFunction) => {
     try {
         const id = +request.params.id;
         await logic.deleteVacation(id);
